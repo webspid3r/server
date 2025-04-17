@@ -1,0 +1,106 @@
+<!-- Whoever checks the source code, please come to my dm and help me w ts shit.-->
+ <!--Discord   tc6x
+     Telegram  webspid3r-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://files.catbox.moe/3bai39.png">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000000;
+            font-family: 'Jersey 15', sans-serif;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+        }
+        .logo {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+        .text {
+            color: #ffffff;
+            font-size: 36px;
+            text-align: center;
+            animation: float 3s ease-in-out infinite;
+        }
+        audio {
+            display: none;
+        }     
+        @keyframes float {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-10px) scale(1.02);
+                opacity: 0.95;
+            }
+            100% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://files.catbox.moe/3bai39.png" alt="Logo" class="logo">
+        <div class="text" id="typewriter">Coming Soon...</div>
+    </div>
+    <audio id="backgroundMusic" autoplay loop>
+        <source src="https://files.catbox.moe/9r7xyy.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        const text = "Coming Soon...";
+        let index = 0;
+        let forward = true;
+        const speed = 200; 
+
+        function typeWriter() {
+            const typewriter = document.getElementById("typewriter");
+            if (forward) {
+                if (index < text.length) {
+                    typewriter.textContent = text.substring(0, index + 1);
+                    index++;
+                } else {
+                    forward = false;
+                    setTimeout(typeWriter, speed * 4); 
+                    return;
+                }
+            } else {
+                if (index > 0) {
+                    typewriter.textContent = text.substring(0, index - 1);
+                    index--;
+                } else {
+                    forward = true;
+                    setTimeout(typeWriter, speed * 2); 
+                    return;
+                }
+            }
+            setTimeout(typeWriter, speed);
+        }
+
+        typeWriter();
+        const audio = document.getElementById("backgroundMusic");
+        audio.play().catch(function(error) {
+            console.log("Autoplay prevented: ", error);
+           
+            document.addEventListener('click', function() {
+                audio.play();
+            }, { once: true });
+        });
+    </script>
+</body>
+</html>
