@@ -16,35 +16,26 @@
             font-family: Arial, sans-serif;
         }
         .container {
-            text-align: center;
-            backdrop-filter: blur(10px);
-            background: rgba(0, 0, 0, 0.5);
+            background-color: rgba(255, 255, 255, 0.1);
             padding: 20px;
             border-radius: 10px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+            cursor: pointer;
         }
-        .redirect-button {
-            background: none;
-            border: none;
+        .container:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .container p {
             color: gray;
             font-size: 24px;
-            cursor: pointer;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-        .redirect-button:hover {
-            background: rgba(255, 255, 255, 0.1);
+            margin: 0;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <button class="redirect-button" onclick="redirectToHeartSec()">Redirect</button>
+    <div class="container" onclick="window.location.href='https://heartsec.art'">
+        <p>redirect</p>
     </div>
-    <script>
-        function redirectToHeartSec() {
-            window.location.href = "https://heartsec.art";
-        }
-    </script>
 </body>
 </html>
